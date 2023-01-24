@@ -13,7 +13,7 @@ public class APIDownloader {
         Server server = plugin.getServer();
 
         if (server.getPluginManager().getPlugin("ScoreboardPlugin") == null) {
-            plugin.getLogger().info("Downloading ScoreboardAPI...");
+            plugin.getLogger().info("下载ScoreboardAPI中...");
 
             String scoreboardApi = server.getFilePath() + "/plugins/ScoreboardAPI.jar";
 
@@ -22,16 +22,16 @@ public class APIDownloader {
                 fos.getChannel().transferFrom(Channels.newChannel(new URL("https://dl.dropboxusercontent.com/s/hsrflmdxqqrvc0v/ScoreboardAPI.jar").openStream()), 0, Long.MAX_VALUE);
                 fos.close();
             } catch (Exception e) {
-                plugin.getLogger().error("Failed to download ScoreboardAPI!", e);
+                plugin.getLogger().error("无法下载ScoreboardAPI!", e);
                 return false;
             }
 
-            plugin.getLogger().info("ScoreboardAPI downloaded successfully");
+            plugin.getLogger().info("ScoreboardAPI下载完成！");
             server.getPluginManager().enablePlugin(server.getPluginManager().loadPlugin(scoreboardApi));
         }
 
         if (server.getPluginManager().getPlugin("KotlinLib") == null) {
-            plugin.getLogger().info("Downloading KotlinLib...");
+            plugin.getLogger().info("下载KotlinLib...中");
 
             String placeholderApi = server.getFilePath() + "/plugins/KotlinLib.jar";
 
@@ -40,16 +40,16 @@ public class APIDownloader {
                 fos.getChannel().transferFrom(Channels.newChannel(new URL("https://dl.dropboxusercontent.com/s/6rmogms1458p369/KotlinLib.jar").openStream()), 0, Long.MAX_VALUE);
                 fos.close();
             } catch (Exception e) {
-                plugin.getLogger().error("Failed to download KotlinLib!", e);
+                plugin.getLogger().error("无法下载KotlinLib!", e);
                 return false;
             }
 
-            plugin.getLogger().info("PlaceholderAPI downloaded successfully");
+            plugin.getLogger().info("PlaceholderAPI下载完成 !");
             server.getPluginManager().enablePlugin(server.getPluginManager().loadPlugin(placeholderApi));
         }
 
         if (server.getPluginManager().getPlugin("PlaceholderAPI") == null) {
-            plugin.getLogger().info("Downloading PlaceholderAPI...");
+            plugin.getLogger().info("下载PlaceholderAPI中...");
 
             String placeholderApi = server.getFilePath() + "/plugins/PlaceholderAPI.jar";
 
@@ -58,11 +58,11 @@ public class APIDownloader {
                 fos.getChannel().transferFrom(Channels.newChannel(new URL("https://dl.dropboxusercontent.com/s/b5qvtaugosf54am/PlaceholderAPI.jar").openStream()), 0, Long.MAX_VALUE);
                 fos.close();
             } catch (Exception e) {
-                plugin.getLogger().error("Failed to download PlaceholderAPI!", e);
+                plugin.getLogger().error("无法下载PlaceholderAPI!", e);
                 return false;
             }
 
-            plugin.getLogger().info("PlaceholderAPI downloaded successfully");
+            plugin.getLogger().info("PlaceholderAPI下载完成！");
             server.getPluginManager().enablePlugin(server.getPluginManager().loadPlugin(placeholderApi));
         }
 
