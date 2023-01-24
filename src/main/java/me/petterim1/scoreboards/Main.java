@@ -41,21 +41,21 @@ public class Main extends PluginBase implements Listener {
         saveDefaultConfig();
         Config config = getConfig();
 
-        if (config.getInt("version") < currentConfig) {
-            getLogger().warning("The config file of SimpleScoreboards plugin is outdated. Please delete the old config.yml file.");
+        if (config.getInt("版本") < currentConfig) {
+            getLogger().warning("SimpleScoreboards插件的配置文件config.yml已经过期，请删除旧的配置文件config.yml。");
         }
 
-        scoreboardTitle = config.getString("title");
-        scoreboardText.addAll(config.getStringList("text"));
+        scoreboardTitle = config.getString("标题");
+        scoreboardText.addAll(config.getStringList("文本"));
         noScoreboardWorlds.addAll(config.getStringList("noScoreboardWorlds"));
 
         try {
             if (Integer.parseInt(System.getProperty("java.version").split("\\.")[0]) > 11) {
-                getLogger().warning("The plugin cannot be guaranteed to work on this Java version. For best compatibility and performance, use Java 8 or 11.");
+                getLogger().warning("该插件不能保证在这个Java版本上运行，为了获得最佳的兼容性和性能，请使用Java 8或11");
                 incompatibleJava = true;
             }
         } catch (Exception e) {
-            getLogger().warning("Failed to check Java version. For best compatibility and performance, use Java 8 or 11.");
+            getLogger().warning("检查Java版本失败，如果你的Java版本在Java 8以下，请使用Java 8或11以获取更好的兼容性和性能。");
             if (Nukkit.DEBUG > 1) {
                 e.printStackTrace();
             }
@@ -66,7 +66,7 @@ public class Main extends PluginBase implements Listener {
         if (config.getInt("update") > 0) {
             getServer().getScheduler().scheduleDelayedRepeatingTask(this, new ScoreboardUpdater(this), config.getInt("update"), config.getInt("update"), config.getBoolean("async", true));
         } else {
-            getLogger().notice("Scoreboard updating is not enabled (update <= 0)");
+            getLogger().notice("未启用计分板更新 (更新 <= 0)");
         }
     }
 
@@ -76,7 +76,7 @@ public class Main extends PluginBase implements Listener {
             return placeholderApi.translateString(t, p);
         } catch (Exception e) {
             e.printStackTrace();
-            return "PlaceholderAPI error!";
+            return "PlaceholderAPI发生错误!";
         }
     }
 
