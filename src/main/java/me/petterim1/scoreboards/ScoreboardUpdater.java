@@ -21,11 +21,11 @@ public class ScoreboardUpdater implements Runnable {
 
     public ScoreboardUpdater(Main main) {
         if (Main.incompatibleJava) {
-            main.getLogger().warning("Improved scoreboard updater is not supported on this Java version. Please avoid fast scoreboard updates. For best compatibility and performance, use Java 8 or 11.");
+            main.getLogger().warning("新版的Scoreboard更新器不支持这个Java版本，请不要使用快速更新Sreboard。为了获得最佳的兼容性和性能，请使用Java 8或11。");
             return;
         }
         try {
-            f1 = Scoreboard.class.getDeclaredField("scoreboardLines");
+            f1 = Scoreboard.class.getDeclaredField("计分板行数");
             f1.setAccessible(true);
             Field f1m = Field.class.getDeclaredField("modifiers");
             f1m.setAccessible(true);
@@ -61,7 +61,7 @@ public class ScoreboardUpdater implements Runnable {
                                 continue;
                             }
 
-                            Field f2 = lineObj.getClass().getDeclaredField("fakeName");
+                            Field f2 = lineObj.getClass().getDeclaredField("假名称");
                             f2.setAccessible(true);
 
                             Field f2m = Field.class.getDeclaredField("modifiers");
